@@ -16,6 +16,9 @@ jobs:
           tf_actions_subcommand: 'fmt'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: 'Terraform Init'
         uses: hashicorp/terraform-github-actions@master
         with:
