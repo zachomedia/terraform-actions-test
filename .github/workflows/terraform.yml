@@ -19,6 +19,8 @@ jobs:
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - run: |
+          cp -r $HOME/.azure /home/runner/work/_temp/_github_home
       - name: 'Terraform Init'
         uses: hashicorp/terraform-github-actions@master
         with:
